@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href='{{url_for("static",filename="assets/style.css")}}'>
+		<link rel="stylesheet" href='{{url_for("static",filename="vendor/bootstrap-icons/bootstrap-icons.css")}}'>
+	</head>
+	<body>
+		<div class="overlay" id="overlay"></div>
+		<header>
+			<div class="navbar">
+				{{title}}
+			</div>
+		</header>
+		<main>
+			<div class="addButton">
+				<button id="addButton"><i class="bi bi-patch-plus-fill"></i></button>
+			</div>
+		</main>
+		<section class="todoList" id="todoList">
+			{% if notes %}
+				{% for note in notes %}
+					<div class="todo" id='{{note}}'>
+						<div class="details" id="details">
+							<h3>{{notes[note]["header"]}}</h3>
+							<br>
+							<p>{{notes[note]["wrap"]}}</p>
+							<br>
+							<sub class="date" id="date">{{notes[note]["time"]}}</sub>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</section>
+		<div class="model" id="model">
+			<div class="mform">
+				<i class="bi bi-arrow-right-short" id="close"></i>
+				<h3>Create New Todo</h3>
+				<br>
+				<input type="text" id="taskName" name="header" placeholder="Enter Task Name" maxlength=20>
+				<br>
+				<textarea name="content" id="taskContent" placeholder="Enter Task Details" maxlength=2000></textarea>
+				<br>
+				<button id="add">Add ToDo</button>
+			</div>
+		</div>
+		<div id="particles-js"></div>
+		<script src="{{url_for('static',filename='scripts/main.js')}}"></script>
+		<script src="{{url_for('static',filename='vendor/jquery.js')}}"></script>
+	</body>
+	<script src="{{url_for('static',filename='vendor/particles.min.js')}}"></script>
+	<script>
+		particlesJS("particles-js", {
+			"particles": {
+				"number": {
+					"value": 69,
+					"density": {
+						"enable": true,
+						"value_area": 800
+					}
+				},
+				"color": {
+					"value": "#ffffff"
+				},
+				"shape": {
+					"type": "circle",
+					"stroke": {
+						"width": 0,
+						"color": "#000000"
+					},
+					"polygon": {
+						"nb_sides": 3.7000000000000006
+					},
+					"image": {
+						"src": "",
+						"width": 250,
+						"height": 200
+					}
+				},
+				"opacity": {
+					"value": 0.3,
+					"random": true,
+					"anim": {
+						"enable": false,
+						"speed": 1,
+						"opacity_min": 0.1,
+						"sync": false
+					}
+				},
+				"size": {
+					"value": 10,
+					"random": true,
+					"anim": {
+						"enable": false,
+						"speed": 63,
+						"size_min": 0.4700000000000001,
+						"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": false,
+					"distance": 150,
+					"color": "#ffffff",
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 1.6,
+					"direction": "none",
+					"random": true,
+					"straight": false,
+					"out_mode": "out",
+					"bounce": false,
+					"attract": {
+						"enable": false,
+						"rotateX": 600,
+						"rotateY": 1200
+					}
+				}
+			},
+			"interactivity": {
+				"detect_on": "window",
+				"events": {
+					"onhover": {
+						"enable": false,
+						"mode": "repulse"
+					},
+					"onclick": {
+						"enable": true,
+						"mode": "repulse"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+						"distance": 400,
+						"line_linked": {
+							"opacity": 1
+						}
+					},
+					"bubble": {
+						"distance": 100,
+						"size": 40,
+						"duration": 2,
+						"opacity": 8,
+						"speed": 3
+					},
+					"repulse": {
+						"distance": 100,
+						"duration": 0.35
+					},
+					"push": {
+						"particles_nb": 4
+					},
+					"remove": {
+						"particles_nb": 2
+					}
+				}
+			},
+			"retina_detect": true
+		});
+	</script>
+</html>

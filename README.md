@@ -17,8 +17,4 @@
 
 <br>
 
-> **Developed By [ΛЯΣTΣ](https://github.com/SecretsX)**
-
-<br>
-
 <p align="center"><sub><b>Thank You - Hope You Found Something Useful</b></sub></>
